@@ -5,7 +5,7 @@ reading textbooks or papers in the browser and need clarification on something.
 
 I hope you can find it useful as well!
 
-# Look Claude
+# Look Claude!
 
 Firefox extension that lets you snip a region of any web page (like the Windows
 Snipping Tool) and pipes the cropped image — along with an optional prompt
@@ -14,9 +14,21 @@ as an image attachment.
 
 ## Install
 
-1. Open `about:debugging#/runtime/this-firefox`
-2. Click **Load Temporary Add-on…**
-3. Pick `manifest.json` in this folder
+### From a signed release (recommended)
+
+1. Grab the latest `.xpi` from the [Releases page](../../releases/latest).
+2. Drag the downloaded `.xpi` onto a Firefox window (or open `about:addons` →
+   gear icon → **Install Add-on From File…** and select it).
+3. Confirm the prompt. The extension is signed by Mozilla and installs
+   permanently — it persists across restarts and updates automatically when a
+   new signed release is published.
+
+### From source (for development)
+
+1. Clone the repo.
+2. Open `about:debugging#/runtime/this-firefox`.
+3. Click **Load Temporary Add-on…** and pick `manifest.json`.
+4. Note: temporary add-ons are unloaded when Firefox restarts.
 
 ## Usage
 
