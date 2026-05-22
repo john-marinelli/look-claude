@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <radialGradient id="iris" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f6a37e"/>
+      <stop offset="55%" stop-color="#d97757"/>
+      <stop offset="100%" stop-color="#8a3f23"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2a2c"/>
+      <stop offset="100%" stop-color="#161618"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="4" y="4" width="120" height="120" rx="24" fill="url(#bg)"/>
+
+  <!-- Dashed snip frame -->
+  <rect x="18" y="18" width="92" height="92" rx="10"
+        fill="none" stroke="#d97757" stroke-width="3"
+        stroke-dasharray="8 6" stroke-linecap="round"/>
+
+  <!-- Corner brackets to make it read as a selection -->
+  <g fill="none" stroke="#f2f2f7" stroke-width="4" stroke-linecap="round">
+    <path d="M14 30 V18 H26"/>
+    <path d="M102 18 H114 V30"/>
+    <path d="M114 98 V110 H102"/>
+    <path d="M26 110 H14 V98"/>
+  </g>
+
+  <!-- Eye / lens -->
+  <ellipse cx="64" cy="64" rx="30" ry="22" fill="#f2f2f7"/>
+  <circle cx="64" cy="64" r="16" fill="url(#iris)"/>
+  <circle cx="64" cy="64" r="7" fill="#1a1a1c"/>
+  <circle cx="59" cy="59" r="2.5" fill="#ffffff"/>
+
+  <!-- Sparkle -->
+  <g fill="#d97757">
+    <path d="M96 36 L99 44 L107 47 L99 50 L96 58 L93 50 L85 47 L93 44 Z"/>
+  </g>
+</svg>

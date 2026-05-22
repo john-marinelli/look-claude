@@ -1,0 +1,42 @@
+# Look Claude
+
+Firefox extension that lets you snip a region of any web page (like the Windows
+Snipping Tool) and pipes the cropped image — along with an optional prompt
+prefix you type — directly into the Claude web app (`https://claude.ai/new`)
+as an image attachment.
+
+## Install
+
+1. Open `about:debugging#/runtime/this-firefox`
+2. Click **Load Temporary Add-on…**
+3. Pick `manifest.json` in this folder
+
+## Usage
+
+1. Click the **Look Claude** toolbar button.
+2. (Optional) Type a prompt you want pasted into Claude before the image is
+   attached. It persists between runs.
+3. Click **Snip region**.
+4. Drag a rectangle on the page; release to capture. `Esc` cancels.
+5. The extension opens (or focuses) a `claude.ai/new` tab, types your prefix
+   into the prompt box, then dispatches a paste/drop with the cropped PNG so
+   Claude attaches it. Review and send.
+
+## Notes
+
+- Only what's visible in the viewport can be captured (`tabs.captureVisibleTab`).
+- Selection coordinates are scaled by `devicePixelRatio` so HiDPI displays crop
+  correctly.
+- Internal pages (`about:`, `chrome:`, `moz-extension:`) can't be snipped.
+- The injector tries `paste` first, then synthetic `drop` events if Claude's
+  UI doesn't pick up the paste.
+
+## Files
+
+- `manifest.json` — MV3 manifest
+- `background.js` — captures the visible tab, crops to the selection, stashes
+  the PNG, opens claude.ai
+- `popup/` — toolbar popup (prefix textarea + snip button)
+- `selector/` — overlay injected into the active tab for region selection
+- `claude_inject.js` — content script that pastes the prefix and attaches the
+  image into Claude's composer

@@ -1,0 +1,27 @@
+#look-claude-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  cursor: crosshair;
+  background: rgba(0, 0, 0, 0.25);
+}
+#look-claude-rect {
+  position: fixed;
+  z-index: 2147483647;
+  border: 2px dashed #d97757;
+  background: rgba(217, 119, 87, 0.15);
+  pointer-events: none;
+}
+#look-claude-hint {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2147483647;
+  background: #1c1c1e;
+  color: #f2f2f7;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font: 13px -apple-system, BlinkMacSystemFont, sans-serif;
+  pointer-events: none;
+}

@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Look Claude!",
+  "version": "0.1.0",
+  "description": "Snip a region of any page and send it (with an optional prompt prefix) straight to claude.ai as an image attachment.",
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg",
+    "128": "icons/icon.svg"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "Look Claude!",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon.svg",
+      "32": "icons/icon.svg",
+      "48": "icons/icon.svg"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["selector/selector.css"],
+      "js": ["selector/selector.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["claude_inject.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "look-claude@local",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}
